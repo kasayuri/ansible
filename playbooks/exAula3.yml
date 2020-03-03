@@ -1,6 +1,6 @@
 ---
-- name: upload e replace - karina
-  hosts: all
+- name: "upload e replace - karina"
+  hosts: matriz 
   become: yes
   gather_facts: yes
   vars:
@@ -10,7 +10,7 @@
     group: root
     mode: 0777
   tasks:
-    - name: Upload file
+    - name: "Upload file"
       template:
         src:  "{{file_src}}"
         dest: "{{file_dest}}"
@@ -18,11 +18,11 @@
         group: "{{group}}"
         mode: "{{mode}}"
       register: upload_file
-
-    - name: replace de dev para prod
+      
+    - name: "replace de dev para prod"
       replace:
+        path: "{{file_dest}}/{{file_src}}"
         backup: true
-        path: "{{file_dest}}/{{file_source}}"
         regexp: "development"
         replace: "production"
       when: upload_file is success
