@@ -27,8 +27,13 @@
        
      - name: "4 - Compilando o app"
        npm:
+         name: Master
+         path: "{{file_dest}}"
 
-    #  - name: "5 - Gerenciador node pm2"
+     - name: "5 - Gerenciador node pm2"
+       npm:
+         name: pm2
+         global: yes
 
-    #  - name: "6 - Rodando o app" 
+    #  - name: "6 - Rodando o app pm2 start {{path_app}}/{{app_name}}/app.js" 
 
