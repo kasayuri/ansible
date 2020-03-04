@@ -1,6 +1,3 @@
-[matriz:vars]
-ansible_connection=local
-
 [matriz]
 127.0.0.1
 
